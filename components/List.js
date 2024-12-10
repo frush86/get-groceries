@@ -1,7 +1,4 @@
 import styled from "styled-components";
-import Lottie from "lottie-react";
-
-import animationData from "/assets/animations/food.json";
 import ProductCard from "./ProductCard";
 
 export default function List({ products, toggleRecent }) {
@@ -17,7 +14,6 @@ export default function List({ products, toggleRecent }) {
     return (
       <EmptyContainer>
         <p>🛒 Add products 😋</p>
-        {/* <Lottie animationData={animationData} /> */}
       </EmptyContainer>
     );
   }
