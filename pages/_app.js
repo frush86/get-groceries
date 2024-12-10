@@ -9,49 +9,32 @@ export default function App({ Component, pageProps }) {
     defaultValue: [],
   });
 
-  const [deletedProducts, setDeletedProducts] = useLocalStorageState(
-    "deletedProducts",
-    { defaultValue: [] }
-  );
-
-  const [selectedProducts, setSelectedProducts] = useLocalStorageState(
-    "selectedProducts",
-    { defaultValue: [] }
-  );
-
   function addProduct(productData) {
-    const newProduct = { id: nanoid(), ...productData };
+    const newProduct = { id: nanoid(), ...productData, isRecent: false };
     setProducts((prevProducts) => [newProduct, ...prevProducts]);
   }
 
-  function deleteProduct(id) {
-    // Find the deleted product in the products array
-    const deletedProduct = products.find((product) => product.id === id);
+  const toggleRecent = (id) => {
+    setProducts((prevProducts) => {
+      // Map through the products and toggle the `isRecent` property of the product with the given id
+      const updatedProducts = prevProducts.map((product) =>
+        product.id === id
+          ? { ...product, isRecent: !product.isRecent }
+          : product
+      );
 
-    if (deletedProduct) {
-      // Add the deleted product to deletedProducts
-      setDeletedProducts((prevDeletedProducts) => [
-        ...prevDeletedProducts,
-        deletedProduct,
-      ]);
-    }
+      // Find the toggled product
+      const toggledProduct = updatedProducts.find(
+        (product) => product.id === id
+      );
 
-    // Remove the product from the products array
-    setProducts((prevProducts) =>
-      prevProducts.filter((product) => product.id !== id)
-    );
-
-    // Remove the product from the selectedProducts array
-    setSelectedProducts((prevSelectedProducts) =>
-      prevSelectedProducts.filter((product) => product.id !== id)
-    );
-  }
-
-  function selectProduct(product) {
-    setSelectedProducts((prev) =>
-      prev.some((p) => p.id === product.id) ? prev : [...prev, product]
-    );
-  }
+      // Always move the toggled product to the front of the list
+      return [
+        toggledProduct,
+        ...updatedProducts.filter((product) => product.id !== id),
+      ];
+    });
+  };
 
   return (
     <>
@@ -60,11 +43,8 @@ export default function App({ Component, pageProps }) {
         <Component
           {...pageProps}
           products={products}
-          deletedProducts={deletedProducts}
-          selectedProducts={selectedProducts}
           addProduct={addProduct}
-          deleteProduct={deleteProduct}
-          selectProduct={selectProduct}
+          toggleRecent={toggleRecent}
         />
       </Layout>
     </>

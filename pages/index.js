@@ -1,35 +1,20 @@
 import styled from "styled-components";
 
 import List from "@/components/List";
-import AddedRecent from "@/components/AddedRecent";
+import RecentList from "@/components/RecentList";
 
-export default function HomePage({
-  selectProduct,
-  deleteProduct,
-  products,
-  deletedProducts,
-  selectedProducts,
-}) {
+export default function HomePage({ products, toggleRecent }) {
   return (
     <>
-      <ListContainer>
-        <List
-          deleteProduct={deleteProduct}
-          products={products}
-          selectedProducts={selectedProducts}
-        />
-      </ListContainer>
-      <AddedRecent
-        deletedProducts={deletedProducts}
-        selectProduct={selectProduct}
-      />
+      <List toggleRecent={toggleRecent} products={products} />
+      <RecentList toggleRecent={toggleRecent} products={products} />
     </>
   );
 }
 
 const ListContainer = styled.section`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   width: 100%;
   margin-top: 25px;

@@ -1,13 +1,7 @@
 import styled from "styled-components";
 
 export default function Header() {
-  return (
-    <>
-      <StyledHeader>
-        <h1>Wochenliste</h1>
-      </StyledHeader>
-    </>
-  );
+  return <></>;
 }
 
 const StyledHeader = styled.div`

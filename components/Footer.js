@@ -12,9 +12,8 @@ export default function Footer({ addProduct }) {
 const StyledFooter = styled.div`
   position: fixed;
   bottom: 0;
-  left: 0;
   width: 100%;
-  background-color: #2a9d8f;
+  background-color: #264653;
   padding: 1rem;
   text-align: center;
 `;
