@@ -11,11 +11,3 @@ export default function HomePage({ products, toggleRecent }) {
     </>
   );
 }
-
-const ListContainer = styled.section`
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
-  margin-top: 25px;
-`;

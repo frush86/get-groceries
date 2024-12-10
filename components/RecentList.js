@@ -1,39 +1,43 @@
-import RecentCard from "./RecentCard";
 import styled from "styled-components";
+import { motion } from "motion/react";
 
-export default function AddedRecent({ toggleRecent, products }) {
+import RecentCard from "./RecentCard";
+
+export default function RecentList({ toggleRecent, products }) {
   const recentProducts = products?.filter((product) => product.isRecent) || [];
 
   return (
     <>
       <RecentContainer>
-        <p>Recently bought products</p>
+        <p>Recently Used</p>
       </RecentContainer>
-
-      <RecentList>
+      <List>
         {recentProducts.map((product) => (
-          <section key={product.id}>
+          <Section
+            key={product.id}
+            initial={{ transform: "translateY(-50px)", opacity: 0 }}
+            animate={{ transform: "translateY(0)", opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
             <RecentCard toggleRecent={toggleRecent} product={product} />
-          </section>
+          </Section>
         ))}
-      </RecentList>
+      </List>
     </>
   );
 }
 
 const RecentContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
   text-align: center;
 `;
 
-const RecentList = styled.div`
+const List = styled.div`
   display: flex;
   flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: left;
   margin: 10px;
-  width: 100%;
-  background-color: white;
 `;
+
+const Section = styled(motion.section)``;

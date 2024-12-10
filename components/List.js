@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "motion/react";
 import ProductCard from "./ProductCard";
 
 export default function List({ products, toggleRecent }) {
@@ -21,9 +22,14 @@ export default function List({ products, toggleRecent }) {
   return (
     <ProductList>
       {nonRecentProducts.map((product) => (
-        <section key={product.id}>
-          <ProductCard product={product} toggleRecent={toggleRecent} />
-        </section>
+        <Section
+          key={product.id}
+          initial={{ transform: "translateY(50px)", opacity: 0 }}
+          animate={{ transform: "translateY(0)", opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <ProductCard toggleRecent={toggleRecent} product={product} />
+        </Section>
       ))}
     </ProductList>
   );
@@ -34,13 +40,16 @@ const EmptyContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
   text-align: center;
 `;
 
 const ProductList = styled.div`
   display: flex;
   flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: left;
   margin: 10px;
-  width: 100%;
 `;
+
+const Section = styled(motion.section)``;

@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }) {
     setProducts((prevProducts) => [newProduct, ...prevProducts]);
   }
 
-  const toggleRecent = (id) => {
+  function toggleRecent(id) {
     setProducts((prevProducts) => {
       // Map through the products and toggle the `isRecent` property of the product with the given id
       const updatedProducts = prevProducts.map((product) =>
@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }) {
         ...updatedProducts.filter((product) => product.id !== id),
       ];
     });
-  };
+  }
 
   return (
     <>
