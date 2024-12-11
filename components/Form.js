@@ -17,14 +17,14 @@ export default function Form({ addProduct }) {
         placeholder="We need..."
         required
       />
-      <button type="submit">+</button>
+      <StyledButton type="submit">+</StyledButton>
     </form>
   );
 }
 
 const StyledInput = styled.input`
   width: 250px;
-  height: 30px;
+  height: 40px;
   border-radius: 10px;
   border: solid 1px;
   border-color: white;
@@ -33,4 +33,13 @@ const StyledInput = styled.input`
     outline: none;
     border-color: white;
   }
+`;
+
+const StyledButton = styled.button`
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: solid 1px;
+  border-color: white;
 `;

@@ -28,7 +28,7 @@ const RecentProduct = styled(motion.div)`
   align-items: center;
   justify-content: center;
   width: 120px;
-  height: 120px;
+  height: 60px;
   padding: 5px;
   margin: 2px;
   border-radius: 5px;

@@ -32,11 +32,8 @@ const RecentContainer = styled.div`
 `;
 
 const List = styled.div`
-  display: flex;
-  flex-wrap: wrap;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  justify-content: left;
   margin: 10px;
 `;
 

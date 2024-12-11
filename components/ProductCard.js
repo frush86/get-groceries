@@ -1,6 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { motion } from "motion/react";
+import Image from "next/image";
+
+import { getImageForProduct } from "@/utils/getImageForProduct";
 
 export default function ProductCard({ product, toggleRecent }) {
   const [isRemoved, setIsRemoved] = useState(false);
@@ -16,12 +19,22 @@ export default function ProductCard({ product, toggleRecent }) {
       transition={{ duration: 0.3 }}
       onClick={handleRemove}
     >
+      {
+        <Image
+          src={getImageForProduct(product.name)}
+          alt="Product"
+          width={45}
+          height={45}
+        />
+      }
       {product.name}
     </Product>
   );
 }
 
 const Product = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
   background-color: #e76f51;
   color: white;
   display: flex;

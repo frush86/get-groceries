@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { motion } from "motion/react";
+
 import ProductCard from "./ProductCard";
 
 export default function List({ products, toggleRecent }) {
@@ -44,11 +45,8 @@ const EmptyContainer = styled.div`
 `;
 
 const ProductList = styled.div`
-  display: flex;
-  flex-wrap: wrap;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  justify-content: left;
   margin: 10px;
 `;
 
