@@ -27,7 +27,7 @@ export default function List({ products, toggleRecent }) {
           key={product.id}
           initial={{ transform: "translateY(50px)", opacity: 0 }}
           animate={{ transform: "translateY(0)", opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.2 }}
         >
           <ProductCard toggleRecent={toggleRecent} product={product} />
         </Section>

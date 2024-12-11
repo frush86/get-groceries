@@ -36,6 +36,13 @@ export default function App({ Component, pageProps }) {
     });
   }
 
+  function deleteProduct() {
+    console.log("deleteProduct", products);
+    setProducts((prevProducts) =>
+      prevProducts.filter((product) => !product.isRecent)
+    );
+  }
+
   return (
     <>
       <Layout addProduct={addProduct}>
@@ -44,6 +51,7 @@ export default function App({ Component, pageProps }) {
           {...pageProps}
           products={products}
           addProduct={addProduct}
+          deleteProduct={deleteProduct}
           toggleRecent={toggleRecent}
         />
       </Layout>

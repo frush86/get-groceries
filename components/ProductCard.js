@@ -10,7 +10,7 @@ export default function ProductCard({ product, toggleRecent }) {
 
   function handleRemove() {
     setIsRemoved(true);
-    setTimeout(() => toggleRecent(product.id), 300);
+    setTimeout(() => toggleRecent(product.id), 200);
   }
 
   return (
