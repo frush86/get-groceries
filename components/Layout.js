@@ -16,7 +16,7 @@ export default function Layout({ children, addProduct }) {
 const LayoutContainer = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100); /* Use dynamic height */
 `;
 
 const StyledMain = styled.main`
