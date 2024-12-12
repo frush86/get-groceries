@@ -9,7 +9,7 @@ export default function RecentList({ deleteProduct, toggleRecent, products }) {
   return (
     <>
       <RecentContainer>
-        <p>Recently Used</p>
+        {recentProducts.length > 0 && <p>Recently Used</p>}
       </RecentContainer>
       <List>
         {recentProducts.map((product) => (
@@ -22,20 +22,33 @@ export default function RecentList({ deleteProduct, toggleRecent, products }) {
             <RecentCard toggleRecent={toggleRecent} product={product} />
           </Section>
         ))}
-        <button onClick={deleteProduct}>Delete Recent</button>
+        {recentProducts.length > 0 && (
+          <StyledButton onClick={deleteProduct}>Clear List</StyledButton>
+        )}
       </List>
     </>
   );
 }
 
 const RecentContainer = styled.div`
-  text-align: center;
+  text-align: left;
 `;
 
 const List = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin: 10px;
+`;
+
+const StyledButton = styled.button`
+  width: 120px;
+  height: 60px;
+  padding: 5px;
+  margin: 2px;
+  border: solid 1px;
+  border-radius: 5px;
+  border-color: #2a9d8f;
+  background-color: white;
+  cursor: pointer;
 `;
 
 const Section = styled(motion.section)``;

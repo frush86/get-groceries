@@ -14,6 +14,6 @@ export default createGlobalStyle`
   }
 
   main {
-    padding-bottom: 55px;
+    padding-bottom: 80px;
   }
 `;

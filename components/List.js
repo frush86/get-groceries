@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { motion } from "motion/react";
+import Image from "next/image";
 
 import ProductCard from "./ProductCard";
 
@@ -15,7 +16,13 @@ export default function List({ products, toggleRecent }) {
   if (isEmpty) {
     return (
       <EmptyContainer>
-        <p>🛒 Add products 😋</p>
+        <p>empty cart</p>
+        <Image
+          src="/icons/shoppingCart.png"
+          alt="Shoppingcart"
+          width={100}
+          height={100}
+        />
       </EmptyContainer>
     );
   }
@@ -47,7 +54,6 @@ const EmptyContainer = styled.div`
 const ProductList = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin: 10px;
 `;
 
 const Section = styled(motion.section)``;

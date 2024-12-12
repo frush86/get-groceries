@@ -37,7 +37,6 @@ export default function App({ Component, pageProps }) {
   }
 
   function deleteProduct() {
-    console.log("deleteProduct", products);
     setProducts((prevProducts) =>
       prevProducts.filter((product) => !product.isRecent)
     );

@@ -7,6 +7,7 @@ export default function Form({ addProduct }) {
     const data = Object.fromEntries(formData);
     addProduct(data);
     event.target.reset();
+    event.target.elements.name.blur();
   }
   return (
     <form onSubmit={handleSubmit}>
@@ -29,6 +30,7 @@ const StyledInput = styled.input`
   border: solid 1px;
   border-color: white;
   outline: none;
+  font-size: 15px;
   &:focus {
     outline: none;
     border-color: white;
