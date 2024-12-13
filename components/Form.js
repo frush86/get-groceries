@@ -9,6 +9,11 @@ export default function Form({ addProduct }) {
     event.target.reset();
     event.target.elements.name.blur();
   }
+
+  function handleFocus() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <StyledInput
@@ -17,6 +22,7 @@ export default function Form({ addProduct }) {
         name="name"
         placeholder="We need..."
         required
+        onFocus={handleFocus}
       />
       <StyledButton type="submit">+</StyledButton>
     </form>
