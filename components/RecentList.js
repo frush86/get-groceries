@@ -49,6 +49,10 @@ const StyledButton = styled.button`
   border-color: #2a9d8f;
   background-color: white;
   cursor: pointer;
+  @media (max-width: 430px) {
+    width: 140px;
+    height: 60px;
+  }
 `;
 
 const Section = styled(motion.section)``;

@@ -34,5 +34,5 @@ export function getImageForProduct(name) {
     {}
   );
 
-  return productImages[name.toLowerCase()] || "/icons/unknown.png";
+  return productImages[name.toLowerCase()] || "/icons/shoppingCart.png";
 }

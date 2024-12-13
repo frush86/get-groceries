@@ -40,12 +40,16 @@ const Product = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 120px;
-  height: 120px;
   padding: 5px;
   margin: 2px;
   border-radius: 5px;
   cursor: pointer;
+  width: 120px;
+  height: 120px;
+  @media (max-width: 430px) {
+    width: 140px;
+    height: 140px;
+  }
 `;
 
 // import { motion } from "motion/react";
