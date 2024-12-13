@@ -11,7 +11,7 @@ export default function Footer({ addProduct }) {
 }
 
 const StyledFooter = styled.div`
-  position: sticky;
+  position: fixed;
   bottom: 0;
   z-index: 10;
   width: 100%;
