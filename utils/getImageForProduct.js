@@ -8,6 +8,13 @@ export function getImageForProduct(name) {
     milk: ["milch", "milk", "sahne", "hafermilch", "oatmilk", "butter"],
     bottles: bootleNames,
     veggies: veggieNames,
+    peanutButter: [
+      "peanutbutter",
+      "peanut butter",
+      "erdnussbutter",
+      "erdnuss butter",
+    ],
+    pasta: ["nudeln", "pasta", "ramen", "noodles"],
   };
 
   const veggiesIcon = "/icons/vegetables.png";
@@ -15,6 +22,8 @@ export function getImageForProduct(name) {
   const cheeseIcon = "/icons/cheese.png";
   const eggsIcon = "/icons/eggs.png";
   const milkIcon = "/icons/milk.png";
+  const peanutIcon = "/icons/peanutButter.png";
+  const pastaIcon = "/icons/pasta.png";
 
   const images = {
     veggies: veggiesIcon,
@@ -22,6 +31,8 @@ export function getImageForProduct(name) {
     cheese: cheeseIcon,
     eggs: eggsIcon,
     milk: milkIcon,
+    peanutButter: peanutIcon,
+    pasta: pastaIcon,
   };
 
   const productImages = Object.entries(categories).reduce(
