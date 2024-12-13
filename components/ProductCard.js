@@ -46,7 +46,7 @@ const Product = styled(motion.div)`
   cursor: pointer;
   width: 120px;
   height: 120px;
-  @media (max-width: 430px) {
+  @media (min-width: 430px) {
     width: 140px;
     height: 140px;
   }
