@@ -54,6 +54,7 @@ export const veggies = [
   "kiwis",
   "kiwi",
   "kiwis",
+  "kürbis",
   "melon",
   "melone",
   "melons",

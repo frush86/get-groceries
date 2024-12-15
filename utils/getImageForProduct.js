@@ -1,39 +1,39 @@
-import { bottles as bootleNames } from "./bottles";
+import { bottles as bottleNames } from "./bottles";
 import { veggies as veggieNames } from "./veggies";
+import { flour as flourNames } from "./flour";
+import { spices as spicesName } from "./spices";
 
+export const categories = {
+  eggs: ["eier", "eggs"],
+  cheese: ["käse", "cheese", "camembert", "mozzarella"],
+  milk: ["milch", "milk", "sahne", "hafermilch", "oatmilk", "butter"],
+  bottles: bottleNames,
+  veggies: veggieNames,
+  peanutButter: [
+    "peanutbutter",
+    "peanut butter",
+    "erdnussbutter",
+    "erdnuss butter",
+  ],
+  pasta: ["nudeln", "pasta", "ramen", "noodles"],
+  flour: flourNames,
+  spices: spicesName,
+};
+export const icons = {
+  eggs: "/icons/eggs.png",
+  cheese: "/icons/cheese.png",
+  milk: "/icons/milk.png",
+  bottles: "/icons/wineBottles.png",
+  veggies: "/icons/vegetables.png",
+  peanutButter: "/icons/peanutButter.png",
+  pasta: "/icons/pasta.png",
+  flour: "/icons/flour.png",
+  spices: "/icons/spices.png",
+};
 export function getImageForProduct(name) {
-  const categories = {
-    eggs: ["eier", "eggs", "eggs"],
-    cheese: ["käse", "cheese", "camembert", "mozzarella"],
-    milk: ["milch", "milk", "sahne", "hafermilch", "oatmilk", "butter"],
-    bottles: bootleNames,
-    veggies: veggieNames,
-    peanutButter: [
-      "peanutbutter",
-      "peanut butter",
-      "erdnussbutter",
-      "erdnuss butter",
-    ],
-    pasta: ["nudeln", "pasta", "ramen", "noodles"],
-  };
-
-  const veggiesIcon = "/icons/vegetables.png";
-  const bottlesIcon = "/icons/wineBottles.png";
-  const cheeseIcon = "/icons/cheese.png";
-  const eggsIcon = "/icons/eggs.png";
-  const milkIcon = "/icons/milk.png";
-  const peanutIcon = "/icons/peanutButter.png";
-  const pastaIcon = "/icons/pasta.png";
-
-  const images = {
-    veggies: veggiesIcon,
-    bottles: bottlesIcon,
-    cheese: cheeseIcon,
-    eggs: eggsIcon,
-    milk: milkIcon,
-    peanutButter: peanutIcon,
-    pasta: pastaIcon,
-  };
+  const images = Object.fromEntries(
+    Object.keys(categories).map((key) => [key, icons[key]])
+  );
 
   const productImages = Object.entries(categories).reduce(
     (acc, [category, items]) => {
@@ -45,5 +45,10 @@ export function getImageForProduct(name) {
     {}
   );
 
-  return productImages[name.toLowerCase()] || "/icons/shoppingCart.png";
+  const productName = name.trim().toLowerCase();
+  if (!productImages[productName]) {
+    console.warn(`No icon found for product: ${productName}`);
+  }
+
+  return productImages[productName] || "/icons/shoppingCart.png";
 }

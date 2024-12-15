@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import { getImageForProduct } from "@/utils/getImageForProduct";
 
-export default function ProductCard({ product, toggleRecent }) {
+export default function ProductCard({ product, toggleRecent, isGrouped }) {
   const [isRemoved, setIsRemoved] = useState(false);
 
   function handleRemove() {
@@ -18,16 +18,21 @@ export default function ProductCard({ product, toggleRecent }) {
       animate={isRemoved ? { transform: "translateY(200px)", opacity: 0 } : {}}
       transition={{ duration: 0.3 }}
       onClick={handleRemove}
+      isGrouped={isGrouped} // Ensure the prop is passed to styled component
     >
-      {
-        <Image
-          src={getImageForProduct(product.name)}
-          alt="Product"
-          width={45}
-          height={45}
-        />
-      }
-      {product.name}
+      {!isGrouped ? (
+        <>
+          <Image
+            src={getImageForProduct(product.name)}
+            alt="Product"
+            width={45}
+            height={45}
+          />
+          {product.name}
+        </>
+      ) : (
+        <>{product.name}</>
+      )}
     </Product>
   );
 }
@@ -37,7 +42,6 @@ const Product = styled(motion.div)`
   flex-direction: column;
   background-color: #e76f51;
   color: white;
-  display: flex;
   align-items: center;
   justify-content: center;
   padding: 5px;
@@ -45,9 +49,10 @@ const Product = styled(motion.div)`
   border-radius: 5px;
   cursor: pointer;
   width: 120px;
-  height: 120px;
+  height: ${({ isGrouped }) => (isGrouped ? "60px" : "100px")};
+
   @media (min-width: 430px) {
     width: 140px;
-    height: 140px;
+    height: ${({ isGrouped }) => (isGrouped ? "60px" : "100px")};
   }
 `;
