@@ -51,7 +51,7 @@ export default function List({ products, toggleRecent }) {
   return (
     <div>
       <ToggleButton onClick={() => setIsGrouped(!isGrouped)}>
-        {isGrouped ? "Switch to Normal View" : "Switch to Categories View"}
+        {isGrouped ? "Hide Categories" : "Show Categories"}
       </ToggleButton>
       <ProductList>
         {isGrouped ? (
@@ -65,11 +65,16 @@ export default function List({ products, toggleRecent }) {
                     <Image
                       src={icons[category]}
                       alt={`${category} icon`}
-                      width={45}
-                      height={45}
+                      width={35}
+                      height={35}
                     />
                   ) : (
-                    <span>Other</span>
+                    <Image
+                      src="/icons/shoppingCart.png"
+                      alt="Shoppingcart"
+                      width={35}
+                      height={35}
+                    />
                   )}
                 </CategoryHeader>
                 <ProductsGrid>
@@ -129,6 +134,7 @@ const CategoryHeader = styled.div`
   align-items: center;
   margin-bottom: 5px;
   margin-top: 5px;
+  margin-left: 5px;
 `;
 
 const ProductsGrid = styled.div`
@@ -139,7 +145,7 @@ const ProductsGrid = styled.div`
 const Section = styled(motion.section)``;
 
 const ToggleButton = styled.button`
-  padding: 10px 20px;
+  padding: 10px;
   background-color: white;
   color: black;
   border: solid 1px;
