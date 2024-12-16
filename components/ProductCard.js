@@ -18,7 +18,7 @@ export default function ProductCard({ product, toggleRecent, isGrouped }) {
       animate={isRemoved ? { transform: "translateY(200px)", opacity: 0 } : {}}
       transition={{ duration: 0.3 }}
       onClick={handleRemove}
-      isGrouped={isGrouped} // Ensure the prop is passed to styled component
+      isGrouped={isGrouped}
     >
       {!isGrouped ? (
         <>

@@ -145,7 +145,6 @@ const ToggleContainer = styled.div`
 `;
 
 const StyledToggle = styled.div`
-  padding: 5px;
   color: black;
   cursor: pointer;
 `;
