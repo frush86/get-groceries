@@ -2,6 +2,7 @@ import { bottles as bottleNames } from "./bottles";
 import { veggies as veggieNames } from "./veggies";
 import { flour as flourNames } from "./flour";
 import { spices as spicesName } from "./spices";
+import { household as householdNames } from "./household";
 
 export const categories = {
   eggs: ["eier", "eggs"],
@@ -15,9 +16,10 @@ export const categories = {
     "erdnussbutter",
     "erdnuss butter",
   ],
-  pasta: ["nudeln", "pasta", "ramen", "noodles"],
+  nudeln: ["nudeln", "pasta", "ramen", "noodles"],
   flour: flourNames,
   spices: spicesName,
+  household: householdNames,
 };
 
 export const icons = {
@@ -27,9 +29,10 @@ export const icons = {
   bottles: "/icons/wineBottles.png",
   veggies: "/icons/vegetables.png",
   peanutButter: "/icons/peanutButter.png",
-  pasta: "/icons/pasta.png",
+  nudeln: "/icons/nudeln.png",
   flour: "/icons/flour.png",
   spices: "/icons/spices.png",
+  household: "/icons/household.png",
 };
 
 export function getImageForProduct(name) {

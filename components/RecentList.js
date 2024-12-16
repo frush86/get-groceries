@@ -47,6 +47,7 @@ const StyledButton = styled.button`
   border: dashed black 1px;
   border-radius: 5px;
   background-color: lightgray;
+  color: black;
   cursor: pointer;
   @media (min-width: 430px) {
     width: 140px;
