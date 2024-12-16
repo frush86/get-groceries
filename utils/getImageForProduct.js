@@ -19,6 +19,7 @@ export const categories = {
   flour: flourNames,
   spices: spicesName,
 };
+
 export const icons = {
   eggs: "/icons/eggs.png",
   cheese: "/icons/cheese.png",
@@ -30,6 +31,7 @@ export const icons = {
   flour: "/icons/flour.png",
   spices: "/icons/spices.png",
 };
+
 export function getImageForProduct(name) {
   const images = Object.fromEntries(
     Object.keys(categories).map((key) => [key, icons[key]])

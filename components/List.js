@@ -49,10 +49,26 @@ export default function List({ products, toggleRecent }) {
   }
 
   return (
-    <div>
-      <ToggleButton onClick={() => setIsGrouped(!isGrouped)}>
-        {isGrouped ? "Hide Categories" : "Show Categories"}
-      </ToggleButton>
+    <>
+      <ToggleContainer>
+        <StyledToggle onClick={() => setIsGrouped(!isGrouped)}>
+          {isGrouped ? (
+            <Image
+              src="/icons/grid.png"
+              alt="Shoppingcart"
+              width={30}
+              height={30}
+            />
+          ) : (
+            <Image
+              src="/icons/list.png"
+              alt="Shoppingcart"
+              width={30}
+              height={30}
+            />
+          )}
+        </StyledToggle>
+      </ToggleContainer>
       <ProductList>
         {isGrouped ? (
           Object.entries(groupedProducts).map(([category, products]) => {
@@ -111,7 +127,7 @@ export default function List({ products, toggleRecent }) {
           </ProductsGrid>
         )}
       </ProductList>
-    </div>
+    </>
   );
 }
 
@@ -121,10 +137,23 @@ const EmptyContainer = styled.div`
   justify-content: center;
   margin-top: 20px;
 `;
+
+const ToggleContainer = styled.div`
+  display: flex;
+  justify-content: end;
+  width: 100%;
+`;
+
+const StyledToggle = styled.div`
+  padding: 5px;
+  color: black;
+  cursor: pointer;
+`;
+
 const ProductList = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 0px;
 `;
 
 const CategorySection = styled.div``;
@@ -143,18 +172,6 @@ const ProductsGrid = styled.div`
 `;
 
 const Section = styled(motion.section)``;
-
-const ToggleButton = styled.button`
-  padding: 10px;
-  background-color: white;
-  color: black;
-  border: solid 1px;
-  border-radius: 5px;
-  border-color: #2a9d8f;
-  background-color: white;
-  cursor: pointer;
-  margin-bottom: 20px;
-`;
 
 // import styled from "styled-components";
 // import { motion } from "motion/react";
