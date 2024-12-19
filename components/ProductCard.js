@@ -28,10 +28,10 @@ export default function ProductCard({ product, toggleRecent, isGrouped }) {
             width={45}
             height={45}
           />
-          {product.name}
+          <span>{product.name}</span>
         </>
       ) : (
-        <>{product.name}</>
+        <span>{product.name}</span>
       )}
     </Product>
   );
@@ -54,5 +54,13 @@ const Product = styled(motion.div)`
   @media (min-width: 430px) {
     width: 140px;
     height: ${({ isGrouped }) => (isGrouped ? "60px" : "100px")};
+  }
+
+  span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
+    text-align: center;
   }
 `;

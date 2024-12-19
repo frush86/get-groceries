@@ -16,7 +16,7 @@ export default function RecentCard({ product, toggleRecent }) {
       transition={{ duration: 0.3 }}
       onClick={handleRemove}
     >
-      {product.name}
+      <span>{product.name}</span>
     </RecentProduct>
   );
 }
@@ -36,5 +36,13 @@ const RecentProduct = styled(motion.div)`
   @media (min-width: 430px) {
     width: 140px;
     height: 60px;
+  }
+
+  span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
+    text-align: center;
   }
 `;
